@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group = 'net.standalone'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+}
