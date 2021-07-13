@@ -10,6 +10,8 @@
     <import resource="classpath:daos.xml" />
     <import resource="classpath:services.xml"/>
     <import resource="classpath:factories.xml"/>
+    <import resource="classpath:dependency-injection.xml" />
+    <import resource="circular.xml"/>
 
     <!--<context:annotation-config/>-->
 
