@@ -13,6 +13,9 @@
     <import resource="classpath:dependency-injection.xml" />
     <import resource="circular.xml"/>
     <import resource="factory-di.xml"/>
+    <import resource="inner-beans.xml"/>
+    <import resource="collections.xml"/>
+    <import resource="depends-on.xml"/>
 
     <!--<context:annotation-config/>-->
 
