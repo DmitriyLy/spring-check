@@ -12,6 +12,7 @@
     <import resource="classpath:factories.xml"/>
     <import resource="classpath:dependency-injection.xml" />
     <import resource="circular.xml"/>
+    <import resource="factory-di.xml"/>
 
     <!--<context:annotation-config/>-->
 

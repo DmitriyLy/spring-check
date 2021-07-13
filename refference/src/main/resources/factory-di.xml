@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="factoryDependencyInjection" class="net.dmly.refference.di.factory.FactoryDependencyInjection" factory-method="createInstance">
+        <constructor-arg ref="classA"/>
+        <constructor-arg ref="classB"/>
+        <constructor-arg value="1"/>
+    </bean>
+
+
+    <bean id="classA" class="net.dmly.refference.di.factory.ClassA" />
+    <bean id="classB" class="net.dmly.refference.di.factory.ClassB" />
+
+</beans>
