@@ -19,6 +19,7 @@
     <import resource="lazy-init.xml" />
     <import resource="default-init-destroy-methods.xml" />
     <import resource="lifecycle-callbacks.xml" />
+    <import resource="aware-beans-impl.xml" />
 
     <context:annotation-config/>
 
