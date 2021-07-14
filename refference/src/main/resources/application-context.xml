@@ -16,6 +16,7 @@
     <import resource="inner-beans.xml"/>
     <import resource="collections.xml"/>
     <import resource="depends-on.xml"/>
+    <import resource="lazy-init.xml" />
 
     <!--<context:annotation-config/>-->
 

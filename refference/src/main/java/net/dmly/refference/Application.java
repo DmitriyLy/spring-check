@@ -1,5 +1,6 @@
 package net.dmly.refference;
 
+import net.dmly.refference.dependencies.lazy.LazyInitBean;
 import net.dmly.refference.factories.services.AccountService;
 import net.dmly.refference.factories.services.ClientService;
 import net.dmly.refference.jpetstore.services.PetStoreService;
@@ -21,6 +22,10 @@ public class Application {
 
         clientService.execute();
         accountService.execute();
+
+        System.out.println("\n>>>>>>>>>>>>>>>>>>> Control Point >>>>>>>>>>>> \n");
+
+        LazyInitBean lazyInitBean = context.getBean("lazyInitBean", LazyInitBean.class);
 
         context.close();
 
