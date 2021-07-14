@@ -17,7 +17,9 @@
     <import resource="collections.xml"/>
     <import resource="depends-on.xml"/>
     <import resource="lazy-init.xml" />
+    <import resource="default-init-destroy-methods.xml" />
+    <import resource="lifecycle-callbacks.xml" />
 
-    <!--<context:annotation-config/>-->
+    <context:annotation-config/>
 
 </beans>

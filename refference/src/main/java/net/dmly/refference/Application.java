@@ -14,6 +14,7 @@ public class Application {
                 new ClassPathXmlApplicationContext("application-context.xml");
 
         //GenericApplicationContext context = new GenericApplicationContext();
+        context.registerShutdownHook();
 
         PetStoreService service = context.getBean("petStore", PetStoreService.class);
 
@@ -27,7 +28,7 @@ public class Application {
 
         LazyInitBean lazyInitBean = context.getBean("lazyInitBean", LazyInitBean.class);
 
-        context.close();
+        //context.close();
 
         System.out.println("It works!");
     }
