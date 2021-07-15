@@ -21,6 +21,7 @@
     <import resource="lifecycle-callbacks.xml" />
     <import resource="aware-beans-impl.xml" />
     <import resource="bean-post-processor-config.xml" />
+    <import resource="classpath:application/bean-factory-post-processor-config.xml" />
 
     <context:annotation-config/>
 
