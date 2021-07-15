@@ -9,5 +9,6 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="net.dmly.refference.container.annotation"/>
+    <context:property-placeholder location="classpath:value_properties.properties" />
 
 </beans>
