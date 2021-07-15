@@ -7,10 +7,10 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="classpath:daos.xml" />
-    <import resource="classpath:services.xml"/>
-    <import resource="classpath:factories.xml"/>
-    <import resource="classpath:dependency-injection.xml" />
+    <import resource="classpath:application/daos.xml" />
+    <import resource="classpath:application/services.xml"/>
+    <import resource="classpath:application/factories.xml"/>
+    <import resource="classpath:application/dependency-injection.xml" />
     <import resource="circular.xml"/>
     <import resource="factory-di.xml"/>
     <import resource="inner-beans.xml"/>
@@ -20,6 +20,7 @@
     <import resource="default-init-destroy-methods.xml" />
     <import resource="lifecycle-callbacks.xml" />
     <import resource="aware-beans-impl.xml" />
+    <import resource="bean-post-processor-config.xml" />
 
     <context:annotation-config/>
 

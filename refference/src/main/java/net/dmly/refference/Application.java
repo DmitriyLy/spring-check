@@ -11,7 +11,7 @@ public class Application {
     public static void main(String[] args) {
 
         ConfigurableApplicationContext context =
-                new ClassPathXmlApplicationContext("application-context.xml");
+                new ClassPathXmlApplicationContext("application/application-context.xml");
 
         //GenericApplicationContext context = new GenericApplicationContext();
         context.registerShutdownHook();
