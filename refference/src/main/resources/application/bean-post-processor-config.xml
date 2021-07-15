@@ -5,8 +5,8 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean class="net.dmly.refference.bean_customization.beanpostprocessor.InstantiationTracingBeanPostProcessor"/>
-    <bean class="net.dmly.refference.bean_customization.beanpostprocessor.YetAnotherBeanPostProcessor"/>
+    <bean class="net.dmly.refference.container.bean_customization.beanpostprocessor.InstantiationTracingBeanPostProcessor"/>
+    <bean class="net.dmly.refference.container.bean_customization.beanpostprocessor.YetAnotherBeanPostProcessor"/>
 
 
 </beans>

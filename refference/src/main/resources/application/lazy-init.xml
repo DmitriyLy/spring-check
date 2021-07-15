@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="lazyInitBean" class="net.dmly.refference.dependencies.lazy.LazyInitBean" lazy-init="true">
+    <bean id="lazyInitBean" class="net.dmly.refference.container.dependencies.lazy.LazyInitBean" lazy-init="true">
 
         <constructor-arg value="1234567890"/>
     </bean>

@@ -5,7 +5,7 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="serviceLocator"
-          class="net.dmly.refference.factories.DefaultServiceLocator" destroy-method="destroy"/>
+          class="net.dmly.refference.container.factories.DefaultServiceLocator" destroy-method="destroy"/>
 
     <bean id="clientService"
           factory-bean="serviceLocator"

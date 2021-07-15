@@ -5,12 +5,12 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="classA" class="net.dmly.refference.di.circular.ClassA" >
+    <bean id="classA" class="net.dmly.refference.container.di.circular.ClassA" >
         <!--<constructor-arg name="classB" ref="classB"/>-->
         <property name="classB" ref="classB"/>
     </bean>
 
-    <bean id="classB" class="net.dmly.refference.di.circular.ClassB">
+    <bean id="classB" class="net.dmly.refference.container.di.circular.ClassB">
         <constructor-arg name="classA" ref="classA" />
     </bean>
 

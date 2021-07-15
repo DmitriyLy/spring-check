@@ -4,6 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="net.dmly.refference.bean_customization.beanfactorypostprocessor.TestBeanPostProcessorImpl"/>
+    <bean class="net.dmly.refference.container.bean_customization.beanfactorypostprocessor.TestBeanPostProcessorImpl"/>
 
 </beans>

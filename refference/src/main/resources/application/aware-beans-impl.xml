@@ -5,6 +5,6 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="applicationContextAwareLocal" class="net.dmly.refference.lifecycle.applicationcontextaware.ApplicationContextAwareLocalImpl" />
+    <bean id="applicationContextAwareLocal" class="net.dmly.refference.container.lifecycle.applicationcontextaware.ApplicationContextAwareLocalImpl" />
 
 </beans>

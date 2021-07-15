@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="petStore" class="net.dmly.refference.jpetstore.services.PetStoreServiceImpl">
+    <bean id="petStore" class="net.dmly.refference.container.jpetstore.services.PetStoreServiceImpl">
         <property name="accountDao" ref="accountDao" />
         <property name="itemDao" ref="itemDao" />
     </bean>

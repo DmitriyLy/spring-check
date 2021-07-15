@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="collectionsContainer" class="net.dmly.refference.dependencies.collections.CollectionsContainer">
+    <bean id="collectionsContainer" class="net.dmly.refference.container.dependencies.collections.CollectionsContainer">
 
         <property name="adminEmails">
             <props>
@@ -37,8 +37,8 @@
 
     </bean>
 
-    <bean class="net.dmly.refference.dependencies.collections.SpecificCommand1" id="command1"/>
-    <bean class="net.dmly.refference.dependencies.collections.SpecificCommand2" id="command2"/>
+    <bean class="net.dmly.refference.container.dependencies.collections.SpecificCommand1" id="command1"/>
+    <bean class="net.dmly.refference.container.dependencies.collections.SpecificCommand2" id="command2"/>
 
 
 </beans>

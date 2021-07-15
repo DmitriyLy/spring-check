@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="accountDao" class="net.dmly.refference.jpetstore.dao.jpa.JpaAccountDao">
+    <bean id="accountDao" class="net.dmly.refference.container.jpetstore.dao.jpa.JpaAccountDao">
 
     </bean>
 
-    <bean id="itemDao" class="net.dmly.refference.jpetstore.dao.jpa.JpaItemDao">
+    <bean id="itemDao" class="net.dmly.refference.container.jpetstore.dao.jpa.JpaItemDao">
 
     </bean>
 

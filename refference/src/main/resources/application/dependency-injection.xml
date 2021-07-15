@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="сonstructorInjectionExampleBean" class="net.dmly.refference.di.ConstructorInjectionExampleBean">
+    <bean id="сonstructorInjectionExampleBean" class="net.dmly.refference.container.di.ConstructorInjectionExampleBean">
         <constructor-arg name="years" value="7500000"/>
         <constructor-arg name="ultimateAnswer" value="42"/>
     </bean>

@@ -6,6 +6,6 @@
        default-init-method="intiTestMethod"
        default-destroy-method="destroyTestMethod">
 
-    <bean id="defaultInitDestroyMethodsBean" class="net.dmly.refference.lifecycle.default_init_destroy_methods.DefaultInitDestroyMethodsBean"/>
+    <bean id="defaultInitDestroyMethodsBean" class="net.dmly.refference.container.lifecycle.default_init_destroy_methods.DefaultInitDestroyMethodsBean"/>
 
 </beans>

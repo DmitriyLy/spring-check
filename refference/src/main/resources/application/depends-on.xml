@@ -5,12 +5,12 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="dependOnDataConsumer" class="net.dmly.refference.dependencies.depends_on.DataConsumer"
+    <bean id="dependOnDataConsumer" class="net.dmly.refference.container.dependencies.depends_on.DataConsumer"
           depends-on="dependOnDataProvider">
         <constructor-arg name="dataProvider" ref="dependOnDataProvider" />
     </bean>
 
-    <bean id="dependOnDataProvider" class="net.dmly.refference.dependencies.depends_on.DataProvider">
+    <bean id="dependOnDataProvider" class="net.dmly.refference.container.dependencies.depends_on.DataProvider">
         <constructor-arg>
             <map>
                 <entry key="1" value="Data entry"/>

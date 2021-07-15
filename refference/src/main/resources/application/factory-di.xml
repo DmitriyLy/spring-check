@@ -5,14 +5,14 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="factoryDependencyInjection" class="net.dmly.refference.di.factory.FactoryDependencyInjection" factory-method="createInstance">
+    <bean id="factoryDependencyInjection" class="net.dmly.refference.container.di.factory.FactoryDependencyInjection" factory-method="createInstance">
         <constructor-arg ref="classA"/>
         <constructor-arg ref="classB"/>
         <constructor-arg value="1"/>
     </bean>
 
 
-    <bean id="classA" class="net.dmly.refference.di.factory.ClassA" />
-    <bean id="classB" class="net.dmly.refference.di.factory.ClassB" />
+    <bean id="classA" class="net.dmly.refference.container.di.factory.ClassA" />
+    <bean id="classB" class="net.dmly.refference.container.di.factory.ClassB" />
 
 </beans>
