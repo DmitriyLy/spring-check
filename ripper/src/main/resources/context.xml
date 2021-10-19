@@ -9,6 +9,8 @@
 
     <context:annotation-config/>
 
+    <bean class="net.dmly.part1.quoters.DeprecatedHandlerBeanFactoryPostProcessor" />
+
     <bean class="net.dmly.part1.quoters.PostProxyContextListener" />
 
     <bean class="net.dmly.part1.quoters.ProfilingHandlerBeanPostProcessor" />
