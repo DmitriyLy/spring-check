@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'net.dmly'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+dependencies {
+    implementation group: 'org.reflections', name: 'reflections', version: '0.9.12'
+    implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.2'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
+}
