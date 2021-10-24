@@ -2,7 +2,8 @@ package net.dmly;
 
 public class ConsoleAnnouncer implements Announcer {
 
-    private Recommender recommender = ObjectFactory.getInstance().createObject(Recommender.class);
+    @InjectByType
+    private Recommender recommender;
 
     @Override
     public void announce(String message) {

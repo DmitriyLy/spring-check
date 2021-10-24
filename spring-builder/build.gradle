@@ -20,4 +20,5 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.10")
     implementation group: 'org.reflections', name: 'reflections', version: '0.9.12'
     implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.2'
+    implementation group: 'cglib', name: 'cglib', version: '3.3.0'
 }

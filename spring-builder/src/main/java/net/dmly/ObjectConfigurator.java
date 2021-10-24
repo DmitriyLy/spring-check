@@ -1,5 +1,5 @@
 package net.dmly;
 
 public interface ObjectConfigurator {
-    void configure(Object o);
+    void configure(Object o, ApplicationContext context);
 }
