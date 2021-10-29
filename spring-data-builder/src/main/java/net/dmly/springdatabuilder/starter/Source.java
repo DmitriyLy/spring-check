@@ -1,4 +1,4 @@
-package net.dmly.springdatabuilder.sparkdata;
+package net.dmly.springdatabuilder.starter;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

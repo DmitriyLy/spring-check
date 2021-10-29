@@ -1,4 +1,4 @@
-package net.dmly.springdatabuilder.sparkdata;
+package net.dmly.springdatabuilder.starter;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
