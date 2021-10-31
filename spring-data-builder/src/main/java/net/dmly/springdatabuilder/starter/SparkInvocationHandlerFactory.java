@@ -1,0 +1,78 @@
+package net.dmly.springdatabuilder.starter;
+
+import org.springframework.context.ConfigurableApplicationContext;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class SparkInvocationHandlerFactory {
+
+    private DataExtractorResolver dataExtractorResolver;
+    private Map<String, TransformationSpider> spiderMap;
+    private Map<String, Finalizer> finalizerMap;
+    private ConfigurableApplicationContext context;
+
+    public SparkInvocationHandler create(Class<? extends SparkRepository> sparkRepoInterface) {
+        Class<?> modelClass = getModelClass(sparkRepoInterface);
+        String pathToData = modelClass.getAnnotation(Source.class).value();
+        Set<String> fieldNames = getFieldNames(modelClass);
+        DataExtractor dataExtractor = dataExtractorResolver.resolve(pathToData);
+
+        Map<Method, List<SparkTransformation>> transformationChain = new HashMap<>();
+        Map<Method, Finalizer> method2Finalizer = new HashMap<>();
+
+        Method[] methods = sparkRepoInterface.getMethods();
+        for (Method method : methods) {
+            TransformationSpider currentSpider = null;
+            String name = method.getName();
+            List<String> methodWords = WordsMatcher.toWordsByJavaConvention(name);
+            List<SparkTransformation> transformations = new ArrayList<>();
+            while (methodWords.size() > 1) {
+                String spiderName = WordsMatcher
+                        .findAndRemoveMatchingPiecesIfExists(spiderMap.keySet(), methodWords);
+                if (!spiderName.isEmpty()) {
+                    currentSpider = spiderMap.get(spiderName);
+                }
+                transformations.add(currentSpider.getTransformation(methodWords));
+            }
+            transformationChain.put(method, transformations);
+            String finalizerName = "collect";
+
+            if (methodWords.size() == 1) {
+                finalizerName = methodWords.get(0);
+            }
+
+            method2Finalizer.put(method, finalizerMap.get(finalizerName));
+
+        }
+
+        return SparkInvocationHandler.builder()
+                .modelClass(modelClass)
+                .pathToData(pathToData)
+                .dataExtractor(dataExtractor)
+                .transformationChain(transformationChain)
+                .finalizerMap(method2Finalizer)
+                .context(context)
+                .build();
+
+
+    }
+
+    private Class<?> getModelClass(Class<? extends SparkRepository> repoInterface) {
+        ParameterizedType genericInterface = (ParameterizedType) repoInterface.getGenericInterfaces()[0];
+        Class<?> modelClass = (Class<?>) genericInterface.getActualTypeArguments()[0];
+        return modelClass;
+    }
+
+    private Set<String> getFieldNames(Class<?> modelClass) {
+        return Arrays.stream(modelClass.getDeclaredFields())
+                .filter(field -> !field.isAnnotationPresent(Transient.class))
+                .filter(field -> !Collection.class.isAssignableFrom(field.getType()))
+                .map(Field::getName)
+                .collect(Collectors.toSet());
+    }
+
+}

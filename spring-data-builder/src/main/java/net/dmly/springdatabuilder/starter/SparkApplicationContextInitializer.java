@@ -6,6 +6,8 @@ import org.reflections.Reflections;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.beans.Introspector;
+import java.lang.reflect.Proxy;
 import java.util.Set;
 
 public class SparkApplicationContextInitializer implements ApplicationContextInitializer {
@@ -16,8 +18,15 @@ public class SparkApplicationContextInitializer implements ApplicationContextIni
         String packagesToScan = context.getEnvironment().getProperty("spark.packages-to-scan");
         Reflections scanner = new Reflections(packagesToScan);
         Set<Class<? extends SparkRepository>> sparkRepoInterfaces = scanner.getSubTypesOf(SparkRepository.class);
-        sparkRepoInterfaces.forEach(aClass -> {
-            
+        sparkRepoInterfaces.forEach(sparkRepoInterface -> {
+            Object golem = Proxy.newProxyInstance(sparkRepoInterface.getClassLoader(),
+                    new Class[]{sparkRepoInterface},
+                    ih);
+
+            context.getBeanFactory().registerSingleton(
+                    Introspector.decapitalize(sparkRepoInterface.getName()),
+                    golem);
+
         });
     }
 
