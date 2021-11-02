@@ -1,19 +1,27 @@
-package net.dmly.springdatabuilder.starter;
+package net.dmly.springdatabuilder.unsafe_starter;
 
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.stereotype.Component;
 
+import java.beans.Introspector;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Component
+@RequiredArgsConstructor
 public class SparkInvocationHandlerFactory {
 
-    private DataExtractorResolver dataExtractorResolver;
-    private Map<String, TransformationSpider> spiderMap;
-    private Map<String, Finalizer> finalizerMap;
-    private ConfigurableApplicationContext context;
+    private final DataExtractorResolver dataExtractorResolver;
+    private final Map<String, TransformationSpider> spiderMap;
+    private final Map<String, Finalizer> finalizerMap;
+
+    @Setter
+    private ConfigurableApplicationContext realContext;
 
     public SparkInvocationHandler create(Class<? extends SparkRepository> sparkRepoInterface) {
         Class<?> modelClass = getModelClass(sparkRepoInterface);
@@ -36,13 +44,13 @@ public class SparkInvocationHandlerFactory {
                 if (!spiderName.isEmpty()) {
                     currentSpider = spiderMap.get(spiderName);
                 }
-                transformations.add(currentSpider.getTransformation(methodWords));
+                transformations.add(currentSpider.getTransformation(methodWords, fieldNames));
             }
             transformationChain.put(method, transformations);
             String finalizerName = "collect";
 
             if (methodWords.size() == 1) {
-                finalizerName = methodWords.get(0);
+                finalizerName = Introspector.decapitalize(methodWords.get(0));
             }
 
             method2Finalizer.put(method, finalizerMap.get(finalizerName));
@@ -55,7 +63,7 @@ public class SparkInvocationHandlerFactory {
                 .dataExtractor(dataExtractor)
                 .transformationChain(transformationChain)
                 .finalizerMap(method2Finalizer)
-                .context(context)
+                .context(realContext)
                 .build();
 
 

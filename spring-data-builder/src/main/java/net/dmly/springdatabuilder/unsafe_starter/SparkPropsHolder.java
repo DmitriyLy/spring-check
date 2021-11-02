@@ -1,4 +1,4 @@
-package net.dmly.springdatabuilder.starter;
+package net.dmly.springdatabuilder.unsafe_starter;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

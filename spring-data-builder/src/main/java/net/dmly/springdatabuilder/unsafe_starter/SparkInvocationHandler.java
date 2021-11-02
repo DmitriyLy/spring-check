@@ -1,4 +1,4 @@
-package net.dmly.springdatabuilder.starter;
+package net.dmly.springdatabuilder.unsafe_starter;
 
 import lombok.Builder;
 import org.apache.spark.sql.Dataset;
@@ -24,10 +24,10 @@ public class SparkInvocationHandler implements InvocationHandler {
         Dataset<Row> dataset = dataExtractor.load(pathToData, context);
         List<SparkTransformation> transformations = transformationChain.get(method);
         for (SparkTransformation transformation : transformations) {
-            dataset = transformation.transform(dataset);
+            dataset = transformation.transform(dataset, args);
         }
         Finalizer finalizer = finalizerMap.get(method);
-        Object retVal = finalizer.doAction(dataset);
+        Object retVal = finalizer.doAction(dataset, modelClass);
         return retVal;
     }
 }
