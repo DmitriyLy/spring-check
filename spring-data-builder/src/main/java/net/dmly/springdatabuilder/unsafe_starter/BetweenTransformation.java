@@ -11,7 +11,8 @@ import java.util.List;
 public class BetweenTransformation implements FilterTransformation {
     @Override
     public Dataset<Row> transform(Dataset<Row> dataset, List<String> columnNames, OrderedBag<Object> args) {
-        dataset.filter(functions.col(columnNames.get(0)).between(args.takeAndRemove(), args.takeAndRemove()));
-        return null;
+        return dataset
+                .filter(functions.col(columnNames.get(0))
+                .between(args.takeAndRemove(), args.takeAndRemove()));
     }
 }

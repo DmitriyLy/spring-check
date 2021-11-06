@@ -10,8 +10,9 @@ import net.dmly.springdatabuilder.unsafe_starter.Source;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Source("data/speakers.json")
-public class Speaker {
+@Source("data/criminals.csv")
+public class Criminal {
+    private long id;
     private String name;
-    private long age;
+    private long number;
 }

@@ -12,8 +12,12 @@ public class SpringDataBuilderApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringDataBuilderApplication.class, args);
 		SpeakerRepo speakerRepo = context.getBean(SpeakerRepo.class);
-		List<Speaker> speakers = speakerRepo.findByAgeBetween(20, 25);
+		List<Speaker> speakers = speakerRepo.findByAgeBetween(25, 40);
 		speakers.forEach(System.out::println);
+
+		CriminalRepo criminalRepo = context.getBean(CriminalRepo.class);
+		List<Criminal> criminals = criminalRepo.findByNumberGreaterThanOrderByNumber(15);
+		criminals.forEach(System.out::println);
 	}
 
 }

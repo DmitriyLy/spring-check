@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Component("orderBy")
-public class OrderByTransformationSpider implements TransformationSpider {
+public class OrderTransformationSpider implements TransformationSpider {
     @Override
     public Tuple2<SparkTransformation, List<String>> getTransformation(List<String> methodWords, Set<String> fieldNames) {
         //WordsMatcher.findAndRemoveMatchingPiecesIfExists()

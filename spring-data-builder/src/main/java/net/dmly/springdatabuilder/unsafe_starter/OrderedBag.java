@@ -8,8 +8,8 @@ public class OrderedBag<T> {
 
     private List<T> list = new ArrayList<>();
 
-    public OrderedBag(Object[] args) {
-        this.list = new ArrayList(Arrays.asList(args));
+    public OrderedBag(T[] args) {
+        this.list = new ArrayList<>(Arrays.asList(args));
     }
 
     public T takeAndRemove() {
