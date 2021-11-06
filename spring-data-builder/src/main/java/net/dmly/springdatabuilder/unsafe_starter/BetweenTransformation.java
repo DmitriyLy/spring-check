@@ -10,8 +10,8 @@ import java.util.List;
 @Component("between")
 public class BetweenTransformation implements FilterTransformation {
     @Override
-    public Dataset<Row> transform(Dataset<Row> dataset, List<String> columnNames, List<Object> args) {
-        dataset.filter(functions.col(columnNames.get(0)).between(args.get(0), args.get(1)));
+    public Dataset<Row> transform(Dataset<Row> dataset, List<String> columnNames, OrderedBag<Object> args) {
+        dataset.filter(functions.col(columnNames.get(0)).between(args.takeAndRemove(), args.takeAndRemove()));
         return null;
     }
 }
