@@ -19,6 +19,7 @@ public class SparkInvocationHandler implements InvocationHandler {
     private Map<Method, List<Tuple2<SparkTransformation, List<String>>>> transformationChain;
     private Map<Method, Finalizer> finalizerMap;
     private ConfigurableApplicationContext context;
+    private PostFinalizer postFinalizer;
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -33,6 +34,6 @@ public class SparkInvocationHandler implements InvocationHandler {
 
         Finalizer finalizer = finalizerMap.get(method);
         Object retVal = finalizer.doAction(dataset, modelClass);
-        return retVal;
+        return postFinalizer.postFinalize(retVal);
     }
 }

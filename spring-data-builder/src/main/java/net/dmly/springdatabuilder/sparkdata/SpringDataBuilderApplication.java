@@ -18,6 +18,12 @@ public class SpringDataBuilderApplication {
 		CriminalRepo criminalRepo = context.getBean(CriminalRepo.class);
 		List<Criminal> criminals = criminalRepo.findByNumberGreaterThanOrderByNumber(15);
 		criminals.forEach(System.out::println);
+
+		System.out.println("---------------------------------------\n");
+
+		long count = criminalRepo.findByNameContainsCount("ova");
+		System.out.println(String.format("Count %s", count));
+
 	}
 
 }

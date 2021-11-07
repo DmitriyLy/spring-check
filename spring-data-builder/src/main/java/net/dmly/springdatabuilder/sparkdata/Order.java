@@ -4,19 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.dmly.springdatabuilder.unsafe_starter.ForeignKey;
 import net.dmly.springdatabuilder.unsafe_starter.Source;
-
-import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Source("data/criminals.csv")
-public class Criminal {
+@Source("data/orders.csv")
+public class Order {
     private long id;
     private String name;
-    private long number;
+    private String desc;
+    private int price;
 
-    private List<Order> orders;
+    @ForeignKey
+    private long criminalIde;
 }
