@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.dmly.springdatabuilder.unsafe_starter.ForeignKey;
 import net.dmly.springdatabuilder.unsafe_starter.Source;
 
 import java.util.List;
@@ -18,5 +19,6 @@ public class Criminal {
     private String name;
     private long number;
 
+    @ForeignKey("criminalId")
     private List<Order> orders;
 }

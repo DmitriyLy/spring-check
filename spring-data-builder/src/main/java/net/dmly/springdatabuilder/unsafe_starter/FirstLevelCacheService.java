@@ -20,6 +20,7 @@ public class FirstLevelCacheService {
             DataExtractor extractor = extractorResolver.resolve(pathToSource);
             Dataset<Row> dataset = extractor.load(pathToSource, context);
             dataset.persist();
+            model2DataSet.put(modelClass, dataset);
         }
 
         Encoder<?> encoder = Encoders.bean(modelClass);

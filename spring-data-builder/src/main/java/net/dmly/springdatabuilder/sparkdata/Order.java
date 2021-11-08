@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.dmly.springdatabuilder.unsafe_starter.ForeignKey;
 import net.dmly.springdatabuilder.unsafe_starter.Source;
 
 @Data
@@ -17,7 +16,5 @@ public class Order {
     private String name;
     private String desc;
     private int price;
-
-    @ForeignKey
-    private long criminalIde;
+    private long criminalId;
 }
