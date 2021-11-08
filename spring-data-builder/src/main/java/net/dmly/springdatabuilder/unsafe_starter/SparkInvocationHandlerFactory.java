@@ -64,7 +64,7 @@ public class SparkInvocationHandlerFactory {
                 .dataExtractor(dataExtractor)
                 .transformationChain(transformationChain)
                 .finalizerMap(method2Finalizer)
-                .postFinalizer(new LazyCollectionInjectorPostFinalizer())
+                .postFinalizer(new LazyCollectionInjectorPostFinalizer(realContext))
                 .context(realContext)
                 .build();
 

@@ -17,6 +17,8 @@ public class SparkApplicationContextInitializer implements ApplicationContextIni
     public void initialize(ConfigurableApplicationContext context) {
         AnnotationConfigApplicationContext tempContext = new AnnotationConfigApplicationContext("net.dmly.springdatabuilder.unsafe_starter");
         SparkInvocationHandlerFactory factory = tempContext.getBean(SparkInvocationHandlerFactory.class);
+        DataExtractorResolver extractorResolver = tempContext.getBean(DataExtractorResolver.class);
+        context.getBeanFactory().registerSingleton("sparkDataResolver", extractorResolver);
         tempContext.close();
 
         factory.setRealContext(context);
