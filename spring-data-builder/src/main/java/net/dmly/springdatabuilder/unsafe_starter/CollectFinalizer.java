@@ -25,7 +25,7 @@ public class CollectFinalizer implements Finalizer {
         for (String fieldName : listFieldNames) {
             ParameterizedType genericType = (ParameterizedType) model.getDeclaredField(fieldName).getGenericType();
             Class aClass = (Class) genericType.getActualTypeArguments()[0];
-            dataset.withColumn(fieldName, functions.lit(null).cast(DataTypes.createArrayType(DataTypes.createStructType(Encoders.bean(aClass).schema().fields()))));
+            dataset = dataset.withColumn(fieldName, functions.lit(null).cast(DataTypes.createArrayType(DataTypes.createStructType(Encoders.bean(aClass).schema().fields()))));
         }
 
         return dataset.as(encoder).collectAsList();
